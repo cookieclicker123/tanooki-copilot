@@ -86,5 +86,7 @@ python entity_recognition/train_ner.py
 ### Test the Entity Recognition Model
 
 ```bash
-pytest tests/test_ner.py
+pytest tests/test_entities.py
+
+#View the logs in tmp/entity_logs/ for predictions on each query
 ```
