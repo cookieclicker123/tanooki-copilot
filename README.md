@@ -116,3 +116,9 @@ ollama run tv_model
 Ask the model any question in realtion to TV Post Production, general or specific.
 It's already very good, despite being ultra lightweight, local , private cloud and free.
 No external api's or third party liscenes are needed to create domain expertise.
+
+### Run the formal Test
+
+```bash
+python tests/test_prompt.py --query "What are the fundamental concepts i should know about timecode and what are practical workflows and software i should know about" --provider ollama --model tv_model:latest
+```

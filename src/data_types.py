@@ -103,6 +103,19 @@ class SearchAPI(NamedTuple):
 class ExtractedEntities(BaseModel):
     entities: Dict[str, List[str]]
 
+class TVRequest(BaseModel):
+    query: str
+    prompt: str
+    as_json: bool
+
+class TVResponse(BaseModel):
+    generated_at: str
+    request: TVRequest
+    raw_response: str | Dict[str, Any]
+    model_name: str
+    model_provider: str
+    time_in_seconds: float
+
 class LLMRequest(BaseModel):
     query: str
     prompt: str
