@@ -1,0 +1,59 @@
+{
+  "id": "project_123_id",
+  "name": "project_123",
+  "contributors": [
+    {
+      "id": "john_id",
+      "name": "John",
+      "count": 45,
+      "duration": 16200
+    },
+    {
+      "id": "david_id",
+      "name": "David",
+      "count": 38,
+      "duration": 14400
+    },
+    {
+      "id": "sarah_id",
+      "name": "Sarah",
+      "count": 25,
+      "duration": 9000
+    }
+  ],
+  "locations": [
+    {
+      "id": "beach_id",
+      "name": "Beach",
+      "count": 45,
+      "duration": 16200
+    },
+    {
+      "id": "kitchen_id",
+      "name": "Kitchen",
+      "count": 23,
+      "duration": 8280
+    }
+  ],
+  "cameras": [
+    {
+      "id": "red_id",
+      "name": "RED",
+      "count": 89
+    },
+    {
+      "id": "a7s_id",
+      "name": "Sony A7S",
+      "count": 61
+    }
+  ],
+  "shoot_dates": [
+    "2024-03-15",
+    "2024-03-16",
+    "2024-03-20"
+  ],
+  "clip_types": [
+    "rush",
+    "review"
+  ]
+}
