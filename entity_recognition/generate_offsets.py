@@ -1,21 +1,23 @@
 import spacy
 import json
+import os
 
 # Load the spaCy model
 nlp = spacy.load("en_core_web_lg")
 
-# Sample sentences with entity annotations by text
+# Load sentences from JSON file
+def load_sentences(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+# Path to the sentences JSON file
+sentences_file_path = os.path.join(os.path.dirname(__file__), "./tmp/sentences.json")
+sentences_data = load_sentences(sentences_file_path)
+
+# Convert loaded data to the required format
 sentences = [
-    ("Find me all the clips where John is at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Show all the video segments with John at the Beach.", {"entities": [("segments", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Can you find the clips where John is located at the Beach?", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Pull up all clips featuring John at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("List the clips where John appears at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("I need all the clips that have John at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Fetch the clips of John shot at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Retrieve all clips where John is seen at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Get me the video clips that show John at the Beach.", {"entities": [("video clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
-    ("Please find clips of John at the Beach.", {"entities": [("clips", "CLIP_TYPE"), ("John", "CONTRIBUTOR"), ("Beach", "LOCATION")]}),
+    (item["text"], {"entities": [(ent["text"], ent["label"]) for ent in item["entities"]]})
+    for item in sentences_data
 ]
 
 def generate_offsets(sentences):
