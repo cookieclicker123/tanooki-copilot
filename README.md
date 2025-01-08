@@ -69,3 +69,22 @@ pytest tests/test_intent.py
 #View the logs in tmp/intent_logs/ for predictions on each query
 ```
 
+## Phase 2 - building Entity Recognition Model
+
+### Generate Training Data
+
+```bash
+python entity_recognition/generate_offsets.py
+```
+
+### Train the Entity Recognition Model
+
+```bash
+python entity_recognition/train_ner.py
+```
+
+### Test the Entity Recognition Model
+
+```bash
+pytest tests/test_ner.py
+```
