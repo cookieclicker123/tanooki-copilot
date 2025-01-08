@@ -93,8 +93,7 @@ pytest tests/test_entities.py
 
 ## Phase 3 - building the TV Expert Model
 
-
- - upload the ipynb file to colab and run it, ensure you are using sufficient GPU resources
+ - upload the ipynb file inside tv_expertto colab and run it, ensure you are using sufficient GPU resources
 Ideally an A100
  - Play around with the parameters to get the best results
  - Make sure to download all the model files in tv_post_3b. Ideally move them to drive first to prevent running out of space in colab
