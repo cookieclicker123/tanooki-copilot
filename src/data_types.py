@@ -102,9 +102,6 @@ class SearchAPI(NamedTuple):
 
 class ExtractedEntities(BaseModel):
     entities: Dict[str, List[str]]
-    normalized: Dict[str, List[str]]
-    confidence: Dict[str, float]
-    explanation: str | None
 
 class LLMRequest(BaseModel):
     query: str
