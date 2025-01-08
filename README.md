@@ -113,3 +113,7 @@ ollama list
 
 ollama run tv_model 
 ```
+
+Ask the model any question in realtion to TV Post Production, general or specific.
+It's already very good, despite being ultra lightweight, local , private cloud and free.
+No external api's or third party liscenes are needed to create domain expertise.
