@@ -90,3 +90,26 @@ pytest tests/test_entities.py
 
 #View the logs in tmp/entity_logs/ for predictions on each query
 ```
+
+## Phase 3 - building the TV Expert Model
+
+
+ - upload the ipynb file to colab and run it, ensure you are using sufficient GPU resources
+Ideally an A100
+ - Play around with the parameters to get the best results
+ - Make sure to download all the model files in tv_post_3b. Ideally move them to drive first to prevent running out of space in colab
+ - Make sure you give drive sufficient time to load the files, leave them for 30 mins to fully load.
+ - Once you have them locally on disk, move them to a folder called tv_model in tmp.
+ - Install ollama if you havent
+ - then in terminal run ollama list, there should be nothing if youve just installed
+ - Then run the following commands:
+
+```bash
+ollama list
+
+ollama create ./tmp/tv_model
+
+ollama list
+
+ollama run tv_model 
+```
