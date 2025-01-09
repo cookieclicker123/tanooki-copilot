@@ -122,3 +122,29 @@ No external api's or third party liscenes are needed to create domain expertise.
 ```bash
 python tests/test_prompt.py --query "What are the fundamental concepts i should know about timecode and what are practical workflows and software i should know about" --provider ollama --model tv_model:latest
 ```
+
+### Swap in queries such as the following to test the tv_model against base llama3.2:3B.
+
+ - "In a distributed remote post-production workflow with multiple editors and colorists, how do you handle timecode drift in multi-camera footage while maintaining accurate sync across HDR and SDR deliverables? What tools and pipeline adjustments would you recommend to minimize issues?"
+
+ - "In a multi-location shoot where teams are using both RED and ARRI cameras, how do you maintain timecode sync across devices, especially when there is no master clock available? What post-production tools can align metadata for such footage, and what are their limitations?"
+
+ - "When downmapping Dolby Vision HDR to SDR using DaVinci Resolve, what are the optimal trim pass settings to ensure consistent brightness and contrast without losing highlight details? Include a discussion of MaxCLL and MaxFALL considerations."
+
+ - "What are the key challenges when working with ACES color management in a VFX-heavy pipeline, and how do you ensure consistency across HDR and SDR deliverables when integrating EXR sequences from multiple vendors?"
+
+ - "For an OTT platform that prioritizes AV1 for streaming but needs backward compatibility with H.264, how do you configure a transcoding pipeline to maximize compression efficiency while ensuring playback stability across devices?"
+
+ - "In a collaborative workflow using cloud-based MAM systems like Frame.io, how do you automate proxy generation, metadata tagging, and version control to streamline asset handoffs between editors and colorists?""
+
+ - "What are the benefits of using multicam editing workflows for interviews, and how do you handle syncing audio when timecode is unavailable?"
+
+ - "What are the key steps in a standard post-production workflow for a 30-second commercial, and how can you ensure all stakeholders approve final edits efficiently?"
+
+ - "What are the differences between ProRes 422 HQ and ProRes 4444, and when would you choose one over the other for a short film project?"
+
+ - "Why is it important to use calibrated monitors for color grading, and how can you ensure your grading setup complies with Rec.709 standards for broadcast?"
+
+ - "In a tight deadline situation for delivering episodic content, how do you prioritize tasks between editing, color grading, and sound design to meet the delivery schedule?"
+
+ 
