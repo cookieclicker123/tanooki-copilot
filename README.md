@@ -125,6 +125,8 @@ python tests/test_prompt.py --query "What are the fundamental concepts i should 
 
 ### Swap in queries such as the following to test the tv_model against base llama3.2:3B.
 
+ - "How is ADR (Automated Dialogue Replacement) typically handled in TV post-production? please provide actionable steps and expert insight sections at the end , as well as a realistic scenario where i would use it"
+How is ADR (Automated Dialogue Replacement) typically handled in TV post-production? please provide actionable steps and expert insight sections at the end , as well as a realistic scenario where i would use it
  - "In a distributed remote post-production workflow with multiple editors and colorists, how do you handle timecode drift in multi-camera footage while maintaining accurate sync across HDR and SDR deliverables? What tools and pipeline adjustments would you recommend to minimize issues?"
 
  - "In a multi-location shoot where teams are using both RED and ARRI cameras, how do you maintain timecode sync across devices, especially when there is no master clock available? What post-production tools can align metadata for such footage, and what are their limitations?"
@@ -146,5 +148,4 @@ python tests/test_prompt.py --query "What are the fundamental concepts i should 
  - "Why is it important to use calibrated monitors for color grading, and how can you ensure your grading setup complies with Rec.709 standards for broadcast?"
 
  - "In a tight deadline situation for delivering episodic content, how do you prioritize tasks between editing, color grading, and sound design to meet the delivery schedule?"
-
  
