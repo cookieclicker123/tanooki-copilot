@@ -38,10 +38,11 @@ Fine tuned LLM for Industry savvy AI - Understands the workflows, paradigms and 
 ```bash
 git clone git@github.com:cookieclicker123/tanooki-copilot.git
 cd tanooki-copilot
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+## For david: Ignore phase 1 and phase 2, skip to phase 3
 
 ## Phase 1 - building Agent Intent Recognition
 
@@ -58,7 +59,7 @@ pip install spacy-lookups-data
 ### Train the Intent Recognition Model
 
 ```bash
-python intent_recognition/train_intent.py
+python training/intent_recognition/train_intent.py
 ```
 
 ### Test the Intent Recognition Model
@@ -74,7 +75,7 @@ pytest tests/test_intent.py
 ### Generate Training Data
 
 ```bash
-python entity_recognition/generate_offsets.py
+python training/entity_recognition/generate_offsets.py
 ```
 
 ### Train the Entity Recognition Model
@@ -92,25 +93,55 @@ pytest tests/test_entities.py
 ```
 
 ## Phase 3 - building the TV Expert Model
+```bash
+ignore green lines
+# - upload the ipynb file inside tv_expertto colab and run it, ensure you are using sufficient GPU resources
+# Ideally an A100
+# - Play around with the parameters to get the best results
+# - Make sure to download all the model files in tv_post_3b. Ideally move them to drive first to prevent running out of space in colab
+# - Make sure you give drive sufficient time to load the files, leave them for 30 mins to fully load.
+# - Once you have them locally on disk, move them to a folder called tv_model in tmp.
+# - Install ollama if you havent
+# - then in terminal run ollama list, there should be nothing if youve just installed
+# - Then run the following commands:
+```
 
- - upload the ipynb file inside tv_expertto colab and run it, ensure you are using sufficient GPU resources
-Ideally an A100
- - Play around with the parameters to get the best results
- - Make sure to download all the model files in tv_post_3b. Ideally move them to drive first to prevent running out of space in colab
- - Make sure you give drive sufficient time to load the files, leave them for 30 mins to fully load.
- - Once you have them locally on disk, move them to a folder called tv_model in tmp.
- - Install ollama if you havent
- - then in terminal run ollama list, there should be nothing if youve just installed
- - Then run the following commands:
+ - Download Ollama: Visit the Ollama website and download the macOS installer. 
+ - Install Ollama: Double-click the downloaded installer to run it. 
+ - Open Terminal: Launch the Terminal app on your Mac, in this case the one where you've cloned this repo.
+ - Run a model: Type a command like "ollama run llama" to start using a model (like Llama). 
+
 
 ```bash
+# First test out ollama with the base model to make sure it works
+
+ollama pull llama3.2:3b
+
 ollama list
 
-ollama create ./tmp/tv_model
+ollama run llama3.2:3b
+
+#now create a new model with the files i gave you
+mkdir tmp
+
+mkdir tmp/tv_model
+
+cd tmp/tv_model
+
+#chuck in the model files i sent you into tv_model, one by one, there should be 6 files
 
 ollama list
 
-ollama run tv_model 
+ollama create tv_model:latest
+#Should see the new model in the list
+ollama list
+
+cd ..
+cd ..
+
+python keep_alive.py
+
+ollama run tv_model:latest 
 ```
 
 Ask the model any question in realtion to TV Post Production, general or specific.
@@ -121,6 +152,9 @@ No external api's or third party liscenes are needed to create domain expertise.
 
 ```bash
 python tests/test_prompt.py --query "What are the fundamental concepts i should know about timecode and what are practical workflows and software i should know about" --provider ollama --model tv_model:latest
+
+#In tmp you should see the query log after running the formal tests, and see that answers for the formal tests are better and more structured than just using the raw model.
+#The raw model produced great answers but they are more like the summary we will use at the start for most users, but the tests use an actual system prompt to encourage detail and structure.
 ```
 
 ### Swap in queries such as the following to test the tv_model against base llama3.2:3B.
