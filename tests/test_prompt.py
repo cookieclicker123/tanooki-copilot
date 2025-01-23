@@ -42,8 +42,8 @@ async def main():
         query=args.query, model_name=args.model, provider=args.provider
     )
 
-    # Save response to a file in the tmp directory one level up
-    tmp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tmp')
+    # Save response to a file in the root of the tmp directory
+    tmp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tmp')
     os.makedirs(tmp_dir, exist_ok=True)
     output_file = os.path.join(tmp_dir, f"query-log-{llm_response.model_provider}-{llm_response.model_name}.json")
     
