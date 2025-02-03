@@ -121,14 +121,13 @@ ollama list
 
 ollama run llama3.2:3b
 
-#now create a new model with the files i gave you
-mkdir tmp
+#Now set env key with the token i gave you and download the tanooki tv_model from hf
 
-mkdir tmp/tv_model
+export HF_TOKEN=your_hf_token
+
+python download_tv_model.py
 
 cd tmp/tv_model
-
-#chuck in the model files i sent you into tv_model, one by one, there should be 6 files
 
 ollama list
 
